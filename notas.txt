@@ -1,3 +1,3 @@
 * para solucionar error del gmail revisar este video https://www.youtube.com/watch?v=rlhtIz_Xl9g
-* Siempre ejecutar la aplicacion como Administrador
+* Siempre ejecutar la aplicacion como Administrador.
 * se debe poner las carpetas CPE y CPE_2 en la raiz C sino realizar el cambio en la fuente de la nueva ruta.
