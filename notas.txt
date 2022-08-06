@@ -1,0 +1,2 @@
+* para solucionar error del gmail revisar este video https://www.youtube.com/watch?v=rlhtIz_Xl9g
+* Siempre ejecutar la aplicacion como Administrador

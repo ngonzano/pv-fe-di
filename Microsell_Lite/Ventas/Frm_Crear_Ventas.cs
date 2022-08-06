@@ -1285,7 +1285,7 @@ namespace Microsell_Lite.Ventas
                 objCPE.DISTRITO_CLIENTE = "";
                 //Datos de la empresa
                 objCPE.NRO_DOCUMENTO_EMPRESA = v_rucEmisor.Trim();
-                objCPE.TIPO_DOCUMENTO_EMPRESA = "06";
+                objCPE.TIPO_DOCUMENTO_EMPRESA = "6";
                 objCPE.NOMBRE_COMERCIAL_EMPRESA = v_empresaEmisor.Trim();
                 objCPE.CODIGO_UBIGEO_EMPRESA = "150101";
                 objCPE.DIRECCION_EMPRESA = v_direccionEmpresa.Trim();
