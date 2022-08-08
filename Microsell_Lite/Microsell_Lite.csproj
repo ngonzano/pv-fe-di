@@ -917,6 +917,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="..\notas.txt">
+      <Link>notas.txt</Link>
+    </Content>
     <Content Include="Imagenes\nube.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

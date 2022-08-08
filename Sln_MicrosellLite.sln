@@ -20,9 +20,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Signature", "Signature\Signature.csproj", "{F5F5499D-1B00-47AC-8876-DCFF37E8E320}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C0F4F0AA-8B7D-4195-B8FA-84A588622E4B}"
-	ProjectSection(SolutionItems) = preProject
-		notas.txt = notas.txt
-	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -40,8 +40,8 @@
             Klik.Windows.Forms.v1.Common.PaintStyle paintStyle5 = new Klik.Windows.Forms.v1.Common.PaintStyle();
             Klik.Windows.Forms.v1.Common.PaintStyle paintStyle2 = new Klik.Windows.Forms.v1.Common.PaintStyle();
             Klik.Windows.Forms.v1.Common.PaintStyle paintStyle3 = new Klik.Windows.Forms.v1.Common.PaintStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_AddProducto));
             Klik.Windows.Forms.v1.Common.PaintStyle paintStyle1 = new Klik.Windows.Forms.v1.Common.PaintStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_AddProducto));
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.pnl_titu = new System.Windows.Forms.Panel();
             this.btn_cerrar = new System.Windows.Forms.Button();
@@ -115,6 +115,7 @@
             this.elLabel12 = new Klik.Windows.Forms.v1.EntryLib.ELLabel();
             this.elDivider1 = new Klik.Windows.Forms.v1.EntryLib.ELDivider();
             this.elDivider2 = new Klik.Windows.Forms.v1.EntryLib.ELDivider();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnl_titu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btn_listo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_cancel)).BeginInit();
@@ -134,6 +135,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.elLabel12)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.elDivider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.elDivider2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // bunifuElipse1
@@ -847,6 +849,10 @@
             this.elLabel1.TabStop = false;
             this.elLabel1.VisualStyle = Klik.Windows.Forms.v1.Common.ControlVisualStyles.Custom;
             // 
+            // toolTip1
+            // 
+            this.toolTip1.BackColor = System.Drawing.SystemColors.HighlightText;
+            // 
             // label22
             // 
             this.label22.Anchor = System.Windows.Forms.AnchorStyles.Left;
@@ -1259,12 +1265,23 @@
             this.elDivider2.TabIndex = 588;
             this.elDivider2.VisualStyle = Klik.Windows.Forms.v1.Common.ControlVisualStyles.Custom;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(42, 465);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(20, 18);
+            this.pictureBox1.TabIndex = 589;
+            this.pictureBox1.TabStop = false;
+            this.toolTip1.SetToolTip(this.pictureBox1, "Para un margen de ganancia de 20% de un producto indicar 1.2");
+            // 
             // Frm_AddProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(593, 745);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.elDivider2);
             this.Controls.Add(this.elDivider1);
             this.Controls.Add(this.label2);
@@ -1357,6 +1374,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.elLabel12)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.elDivider1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.elDivider2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1437,5 +1455,6 @@
         private Klik.Windows.Forms.v1.EntryLib.ELLabel elLabel12;
         internal Klik.Windows.Forms.v1.EntryLib.ELDivider elDivider2;
         internal Klik.Windows.Forms.v1.EntryLib.ELDivider elDivider1;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

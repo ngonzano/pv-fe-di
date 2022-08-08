@@ -318,7 +318,7 @@ namespace Microsell_Lite.Ventas
         {
             Frm_Listar_ProductoCompra2 xpro = new Frm_Listar_ProductoCompra2();
             RN_Producto n_prod = new RN_Producto();
-            DataTable dt = new DataTable();
+
 
             fil.Show();
             xpro.TipoVenta = "venta";
@@ -328,6 +328,7 @@ namespace Microsell_Lite.Ventas
 
             if (xpro.Tag.ToString() == "A")
             {
+                DataTable dt = new DataTable();
                 string _idprod;
                 string _nomprod;
                 double _cant = 0;
@@ -1335,14 +1336,14 @@ namespace Microsell_Lite.Ventas
                 rpt_msjSunat = dicionaryEnvio["msj_sunat"];
                 rpt_hashCPE = dicionaryEnvio["hash_cpe"];
                 rpt_hashCDR = dicionaryEnvio["hash_cdr"];
-                Frm_Msm_Respuesta rpt_S = new Frm_Msm_Respuesta();
-                fil.Show();
-                rpt_S.txt_CodSunat.Text = rpt_codSunat;
-                rpt_S.txt_msj_Sunat.Text = rpt_msjSunat;
-                rpt_S.txt_hashCPE.Text = rpt_hashCPE;
-                rpt_S.txt_hashCDR.Text = rpt_hashCDR;
-                rpt_S.ShowDialog();
-                fil.Hide();
+                //Frm_Msm_Respuesta rpt_S = new Frm_Msm_Respuesta();
+                //fil.Show();
+                //rpt_S.txt_CodSunat.Text = rpt_codSunat;
+                //rpt_S.txt_msj_Sunat.Text = rpt_msjSunat;
+                //rpt_S.txt_hashCPE.Text = rpt_hashCPE;
+                //rpt_S.txt_hashCDR.Text = rpt_hashCDR;
+                //rpt_S.ShowDialog();
+                //fil.Hide();
             }
             catch (Exception ex)
             {

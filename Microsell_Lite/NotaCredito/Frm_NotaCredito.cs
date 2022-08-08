@@ -480,7 +480,7 @@ namespace Microsell_Lite.NotaCredito
                 {
                     fil.Show(); ver.lbl_msm.Text = "El Nro de Ruc del Cliente, está incompleto"; ver.ShowDialog(); fil.Hide(); return false;
                 }
-                if (Lbl_direccion.Text.Trim().Length < 4)
+                if (Lbl_direccion.Text.Trim().Length < 1)
                 {
                     fil.Show(); ver.lbl_msm.Text = "Por Favor Revisa el Cliente, NO se cargó su Direccion"; ver.ShowDialog(); fil.Hide(); return false;
                 }
@@ -490,7 +490,7 @@ namespace Microsell_Lite.NotaCredito
             {
                 fil.Show(); ver.lbl_msm.Text = "Por Favor Revisa el Cliente, NO se cargó su ID Unico"; ver.ShowDialog(); fil.Hide(); return false;
             }
-            if (txt_descripcionMotivo.Text.Trim().Length < 4)
+            if (txt_descripcionMotivo.Text.Trim().Length < 1)
             {
                 fil.Show(); ver.lbl_msm.Text = "Agrega una Breve Descripcion del Motivo de Emision"; ver.ShowDialog(); fil.Hide(); return false;
             }
@@ -1010,6 +1010,17 @@ namespace Microsell_Lite.NotaCredito
                 tem.Vendedor = Cls_UsuLogin.xNombres;
                 tem.CodigoQR = Convertir_Imagen_Bytes(pic_qr.Image);
                 tem.TipoComprobante = "Nota Credito Electrónica";
+                if (tem.Forma_pago == null) {
+                    tem.Forma_pago = "Contado";
+                }
+                if (tem.Monto_deuda == null)
+                {
+                    tem.Monto_deuda = "0";
+                }
+                if (tem.Fecha_venc_credito == null)
+                {
+                    tem.Fecha_venc_credito = DateTime.Now.ToString("dd-MM-yyyy");
+                }
 
                 tem.Hash_cpe = "Falta Enviar a Sunat"; //TXTHASHCPE.Text; 
                 tem.MotivoEmis = cbo_MotivoEmis.Text;  //esto es opcional.. en algun momento cuando haga guia de remision

@@ -202,11 +202,11 @@ namespace Microsell_Lite.Utilitarios
             // lbl_rutaPDF
             // 
             this.lbl_rutaPDF.AutoSize = true;
-            this.lbl_rutaPDF.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_rutaPDF.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_rutaPDF.ForeColor = System.Drawing.Color.DimGray;
             this.lbl_rutaPDF.Location = new System.Drawing.Point(12, 390);
             this.lbl_rutaPDF.Name = "lbl_rutaPDF";
-            this.lbl_rutaPDF.Size = new System.Drawing.Size(15, 16);
+            this.lbl_rutaPDF.Size = new System.Drawing.Size(12, 13);
             this.lbl_rutaPDF.TabIndex = 757;
             this.lbl_rutaPDF.Text = "-";
             // 
@@ -224,11 +224,11 @@ namespace Microsell_Lite.Utilitarios
             // lbl_rutaXML
             // 
             this.lbl_rutaXML.AutoSize = true;
-            this.lbl_rutaXML.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_rutaXML.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_rutaXML.ForeColor = System.Drawing.Color.DimGray;
             this.lbl_rutaXML.Location = new System.Drawing.Point(13, 439);
             this.lbl_rutaXML.Name = "lbl_rutaXML";
-            this.lbl_rutaXML.Size = new System.Drawing.Size(15, 16);
+            this.lbl_rutaXML.Size = new System.Drawing.Size(12, 13);
             this.lbl_rutaXML.TabIndex = 759;
             this.lbl_rutaXML.Text = "-";
             // 
@@ -351,8 +351,8 @@ namespace Microsell_Lite.Utilitarios
             this.txt_Mensaje.PasswordChar = '\0';
             this.txt_Mensaje.Size = new System.Drawing.Size(349, 131);
             this.txt_Mensaje.TabIndex = 765;
-            this.txt_Mensaje.Text = "Gracias por comprar en DeliFast, se envio un correo \r\ncon su comprobante de pago." +
-    "";
+            this.txt_Mensaje.Text = "Gracias por comprar en Delivery Import, se envio un correo \r\ncon su comprobante d" +
+    "e pago.";
             // 
             // label5
             // 
