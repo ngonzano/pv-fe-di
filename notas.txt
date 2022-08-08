@@ -1,3 +1,9 @@
 * para solucionar error del gmail revisar este video https://www.youtube.com/watch?v=rlhtIz_Xl9g
 * Siempre ejecutar la aplicacion como Administrador.
 * se debe poner las carpetas CPE y CPE_2 en la raiz C sino realizar el cambio en la fuente de la nueva ruta.
+* para cargar la base de datps revisar los script de la carpeta base de datos
+* para crear usuario crtl+shit+F12
+* instalar Microsoft.ACE.OLEDB.12.0 en todas las pc donde se va usar - pendiente de validar
+* instalar sap para el reporte - pendiente de validar
+
+* revisar el margen de utilidad poner claro que es lo que se va poner para un 20% poner 1.2

@@ -44,5 +44,16 @@ namespace Microsell_Lite.Properties {
                 return ((string)(this["Valor"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=mssql-84892-0.cloudclusters.net,11919;Initial Catalog=DI_ZEUS_FE;Pers" +
+            "ist Security Info=True;User ID=ngonzano;Password=14@qweszxC")]
+        public string cn2 {
+            get {
+                return ((string)(this["cn2"]));
+            }
+        }
     }
 }
