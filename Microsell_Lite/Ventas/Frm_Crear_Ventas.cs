@@ -890,6 +890,7 @@ namespace Microsell_Lite.Ventas
                             if (txt_buscar.Text.Length > 6)
                             {
                                 RN_Cotizacion n_coti = new RN_Cotizacion();
+                                //debe validar si es de la app
                                 n_coti.RN_Cambiar_Estado_Cotizacion(txt_NroCotiza.Text, "Atendido");
                             }
 
@@ -1062,6 +1063,7 @@ namespace Microsell_Lite.Ventas
                                 if (txt_buscar.Text.Length > 6)
                                 {
                                     RN_Cotizacion n_coti = new RN_Cotizacion();
+                                    //debe validar si es de la app
                                     n_coti.RN_Cambiar_Estado_Cotizacion(txt_NroCotiza.Text, "Atendido");
                                 }
 
@@ -1169,6 +1171,7 @@ namespace Microsell_Lite.Ventas
                             if (txt_buscar.Text.Length > 6)
                             {
                                 RN_Cotizacion n_coti = new RN_Cotizacion();
+                                //debe validar si es de la app
                                 n_coti.RN_Cambiar_Estado_Cotizacion(txt_NroCotiza.Text, "Atendido");
                             }
 
@@ -1687,6 +1690,7 @@ namespace Microsell_Lite.Ventas
                         msm.Lbl_msm1.Text = "La Cotizacion Nro: " + txt_NroDocumento.Text + " se guardo con exito, mientras una venta se encuentra pendiente por un cliente.";
                         msm.ShowDialog();
                         fil.Hide();
+                        //debe validar si es de la app
                         txt_buscar.Text = txt_NroCotiza.Text;
                         //Imprimir Cotizacion
                         fil.Show();
@@ -1854,50 +1858,73 @@ namespace Microsell_Lite.Ventas
 
             try
             {
-                dt = n_coti.RN_Buscar_Cotizacion_Para_Editar(nroCot.Trim());
-                if (dt.Rows.Count > 0)
+                //validar si es de la app con nroCot
+
+                if (nroCot.Contains("COT"))
                 {
-                    var dato = dt.Rows[0];
-                    txt_estCoti.Text = dato["EstadoCoti"].ToString();
-                    if (txt_estCoti.Text == "Atendido")
+                    dt = n_coti.RN_Buscar_Cotizacion_Para_Editar(nroCot.Trim());
+                    if (dt.Rows.Count > 0)
                     {
-                        fil.Show();
-                        adv.lbl_msm.Text = "Esta Cotizacion ya fue atendida, por favor, cargue que se encuentre pendiente.";
-                        adv.ShowDialog();
-                        fil.Hide();
-                        txt_estCoti.Text = "";
-                        pnl_sinProd.Visible = true;
-                        txt_buscar.Text = "";
-                        lsv_Det.Items.Clear();
-                        return;
-                    }
-                    txt_nroPed.Text = dato["id_Ped"].ToString();
-                    txt_NroCotiza.Text = dato["Id_Cotiza"].ToString();
-                    dtp_FechaEmi.Value = Convert.ToDateTime(dato["FechaCoti"].ToString());
-                    lbl_idcliente.Text = dato["Id_Cliente"].ToString();
-                    txt_cliente.Text = dato["Razon_Social_Nombres"].ToString();
-                    lbl_direccion.Text = dato["Direccion"].ToString();
-                    lbl_Dni.Text = dato["DNI"].ToString().Trim();
-                    Leer_Datos_DelCliente(lbl_Dni.Text);
-
-                    foreach (DataRow xitem in dt.Rows)
-                    {
-                        ListViewItem xlist;
-                        string idprod = xitem["Id_Pro"].ToString();
-                        string _uni_medida;
-                        string _uni_medida_desc;
-                        double xcant = Convert.ToDouble(xitem["Stock_Actual"].ToString());
-
-                        _uni_medida = xitem["Und_Medida"].ToString();
-                        dt2 = n_prod.RN_Buscar_UniMedia(_uni_medida);
-                        DataRow dr = dt2.Rows[0];
-                        _uni_medida_desc = dr["descripcion"].ToString();
-
-                        Buscar_Producto_Cotizacion(idprod.Trim());
-
-                        if (xcant > Convert.ToDouble(lbl_StockX.Text) && lbl_prodX.Text.Trim() == "Producto")
+                        var dato = dt.Rows[0];
+                        txt_estCoti.Text = dato["EstadoCoti"].ToString();
+                        if (txt_estCoti.Text == "Atendido")
                         {
-                            if (Convert.ToDouble(lbl_StockX.Text) > 0 && Convert.ToDouble(lbl_StockX.Text) < xcant)
+                            fil.Show();
+                            adv.lbl_msm.Text = "Esta Cotizacion ya fue atendida, por favor, cargue que se encuentre pendiente.";
+                            adv.ShowDialog();
+                            fil.Hide();
+                            txt_estCoti.Text = "";
+                            pnl_sinProd.Visible = true;
+                            txt_buscar.Text = "";
+                            lsv_Det.Items.Clear();
+                            return;
+                        }
+                        txt_nroPed.Text = dato["id_Ped"].ToString();
+                        txt_NroCotiza.Text = dato["Id_Cotiza"].ToString();
+                        //debe validar si es de la app
+                        dtp_FechaEmi.Value = Convert.ToDateTime(dato["FechaCoti"].ToString());
+                        lbl_idcliente.Text = dato["Id_Cliente"].ToString();
+                        txt_cliente.Text = dato["Razon_Social_Nombres"].ToString();
+                        lbl_direccion.Text = dato["Direccion"].ToString();
+                        lbl_Dni.Text = dato["DNI"].ToString().Trim();
+                        Leer_Datos_DelCliente(lbl_Dni.Text);
+
+                        foreach (DataRow xitem in dt.Rows)
+                        {
+                            ListViewItem xlist;
+                            string idprod = xitem["Id_Pro"].ToString();
+                            string _uni_medida;
+                            string _uni_medida_desc;
+                            double xcant = Convert.ToDouble(xitem["Stock_Actual"].ToString());
+
+                            _uni_medida = xitem["Und_Medida"].ToString();
+                            dt2 = n_prod.RN_Buscar_UniMedia(_uni_medida);
+                            DataRow dr = dt2.Rows[0];
+                            _uni_medida_desc = dr["descripcion"].ToString();
+
+                            Buscar_Producto_Cotizacion(idprod.Trim());
+
+                            if (xcant > Convert.ToDouble(lbl_StockX.Text) && lbl_prodX.Text.Trim() == "Producto")
+                            {
+                                if (Convert.ToDouble(lbl_StockX.Text) > 0 && Convert.ToDouble(lbl_StockX.Text) < xcant)
+                                {
+                                    xlist = lsv_Det.Items.Add(xitem["Id_Pro"].ToString());
+                                    xlist.SubItems.Add(xitem["Descripcion_Larga"].ToString());
+                                    xlist.SubItems.Add(xitem["Cantidad"].ToString());
+                                    xlist.SubItems.Add(xitem["Precio_ConIgv"].ToString());
+                                    xlist.SubItems.Add(xitem["Importe_ConIgv"].ToString());
+                                    xlist.SubItems.Add(xitem["Tipo_Prod"].ToString());
+                                    xlist.SubItems.Add(xitem["Und_Medida"].ToString());
+                                    xlist.SubItems.Add(xitem["Utilidad_Unit"].ToString());
+                                    xlist.SubItems.Add(xitem["Utilidad_Unit"].ToString());
+                                    xlist.SubItems.Add("Gravado");
+                                    xlist.SubItems.Add("0.00");
+                                    xlist.SubItems.Add("0.00");
+                                    xlist.SubItems.Add("0.00");
+                                    xlist.SubItems.Add(_uni_medida_desc.ToString());
+                                }
+                            }
+                            else
                             {
                                 xlist = lsv_Det.Items.Add(xitem["Id_Pro"].ToString());
                                 xlist.SubItems.Add(xitem["Descripcion_Larga"].ToString());
@@ -1908,6 +1935,7 @@ namespace Microsell_Lite.Ventas
                                 xlist.SubItems.Add(xitem["Und_Medida"].ToString());
                                 xlist.SubItems.Add(xitem["Utilidad_Unit"].ToString());
                                 xlist.SubItems.Add(xitem["Utilidad_Unit"].ToString());
+
                                 xlist.SubItems.Add("Gravado");
                                 xlist.SubItems.Add("0.00");
                                 xlist.SubItems.Add("0.00");
@@ -1915,44 +1943,129 @@ namespace Microsell_Lite.Ventas
                                 xlist.SubItems.Add(_uni_medida_desc.ToString());
                             }
                         }
-                        else
-                        {
-                            xlist = lsv_Det.Items.Add(xitem["Id_Pro"].ToString());
-                            xlist.SubItems.Add(xitem["Descripcion_Larga"].ToString());
-                            xlist.SubItems.Add(xitem["Cantidad"].ToString());
-                            xlist.SubItems.Add(xitem["Precio_ConIgv"].ToString());
-                            xlist.SubItems.Add(xitem["Importe_ConIgv"].ToString());
-                            xlist.SubItems.Add(xitem["Tipo_Prod"].ToString());
-                            xlist.SubItems.Add(xitem["Und_Medida"].ToString());
-                            xlist.SubItems.Add(xitem["Utilidad_Unit"].ToString());
-                            xlist.SubItems.Add(xitem["Utilidad_Unit"].ToString());
 
-                            xlist.SubItems.Add("Gravado");
-                            xlist.SubItems.Add("0.00");
-                            xlist.SubItems.Add("0.00");
-                            xlist.SubItems.Add("0.00");
-                            xlist.SubItems.Add(_uni_medida_desc.ToString());
-                         }
+                        Calcular();
+                        pnl_sinProd.Visible = false;
+                        txt_buscar.Enabled = false;
+                        lbl_BusCotiza.Enabled = false;
                     }
-                    
-                    Calcular();
-                    pnl_sinProd.Visible = false;
-                    txt_buscar.Enabled = false;
-                    lbl_BusCotiza.Enabled = false;
+                    else
+                    {
+                        fil.Show();
+                        adv.lbl_msm.Text = "No se encontro la cotizacion: " + txt_buscar.Text + ", intentar con otra Cotizacion. ";
+                        adv.ShowDialog();
+                        fil.Hide();
+                        txt_buscar.Enabled = true;
+                        lbl_BusCotiza.Enabled = true;
+                    }
                 }
-                else
+                else if (nroCot.Contains("APP"))
                 {
-                    fil.Show();
-                    adv.lbl_msm.Text = "No se encontro la cotizacion: " + txt_buscar.Text + ", intentar con otra Cotizacion. ";
-                    adv.ShowDialog();
-                    fil.Hide();
-                    txt_buscar.Enabled = true;
-                    lbl_BusCotiza.Enabled = true;
+                    //datos de la order por la app
+                    dt = n_coti.RN_Buscar_Cotizacion_Para_Editar(nroCot.Trim());
+                    if (dt.Rows.Count > 0)
+                    {
+                        var dato = dt.Rows[0];
+                        txt_estCoti.Text = dato["EstadoCoti"].ToString();
+                        if (txt_estCoti.Text == "Atendido")
+                        {
+                            fil.Show();
+                            adv.lbl_msm.Text = "Esta Cotizacion ya fue atendida, por favor, cargue que se encuentre pendiente.";
+                            adv.ShowDialog();
+                            fil.Hide();
+                            txt_estCoti.Text = "";
+                            pnl_sinProd.Visible = true;
+                            txt_buscar.Text = "";
+                            lsv_Det.Items.Clear();
+                            return;
+                        }
+                        txt_nroPed.Text = dato["id_Ped"].ToString();
+                        txt_NroCotiza.Text = dato["Id_Cotiza"].ToString();
+                        //debe validar si es de la app
+                        dtp_FechaEmi.Value = Convert.ToDateTime(dato["FechaCoti"].ToString());
+                        lbl_idcliente.Text = dato["Id_Cliente"].ToString();
+                        txt_cliente.Text = dato["Razon_Social_Nombres"].ToString();
+                        lbl_direccion.Text = dato["Direccion"].ToString();
+                        lbl_Dni.Text = dato["DNI"].ToString().Trim();
+                        Leer_Datos_DelCliente(lbl_Dni.Text);
+
+                        foreach (DataRow xitem in dt.Rows)
+                        {
+                            ListViewItem xlist;
+                            string idprod = xitem["Id_Pro"].ToString();
+                            string _uni_medida;
+                            string _uni_medida_desc;
+                            double xcant = Convert.ToDouble(xitem["Stock_Actual"].ToString());
+
+                            _uni_medida = xitem["Und_Medida"].ToString();
+                            dt2 = n_prod.RN_Buscar_UniMedia(_uni_medida);
+                            DataRow dr = dt2.Rows[0];
+                            _uni_medida_desc = dr["descripcion"].ToString();
+
+                            Buscar_Producto_Cotizacion(idprod.Trim());
+
+                            if (xcant > Convert.ToDouble(lbl_StockX.Text) && lbl_prodX.Text.Trim() == "Producto")
+                            {
+                                if (Convert.ToDouble(lbl_StockX.Text) > 0 && Convert.ToDouble(lbl_StockX.Text) < xcant)
+                                {
+                                    xlist = lsv_Det.Items.Add(xitem["Id_Pro"].ToString());
+                                    xlist.SubItems.Add(xitem["Descripcion_Larga"].ToString());
+                                    xlist.SubItems.Add(xitem["Cantidad"].ToString());
+                                    xlist.SubItems.Add(xitem["Precio_ConIgv"].ToString());
+                                    xlist.SubItems.Add(xitem["Importe_ConIgv"].ToString());
+                                    xlist.SubItems.Add(xitem["Tipo_Prod"].ToString());
+                                    xlist.SubItems.Add(xitem["Und_Medida"].ToString());
+                                    xlist.SubItems.Add(xitem["Utilidad_Unit"].ToString());
+                                    xlist.SubItems.Add(xitem["Utilidad_Unit"].ToString());
+                                    xlist.SubItems.Add("Gravado");
+                                    xlist.SubItems.Add("0.00");
+                                    xlist.SubItems.Add("0.00");
+                                    xlist.SubItems.Add("0.00");
+                                    xlist.SubItems.Add(_uni_medida_desc.ToString());
+                                }
+                            }
+                            else
+                            {
+                                xlist = lsv_Det.Items.Add(xitem["Id_Pro"].ToString());
+                                xlist.SubItems.Add(xitem["Descripcion_Larga"].ToString());
+                                xlist.SubItems.Add(xitem["Cantidad"].ToString());
+                                xlist.SubItems.Add(xitem["Precio_ConIgv"].ToString());
+                                xlist.SubItems.Add(xitem["Importe_ConIgv"].ToString());
+                                xlist.SubItems.Add(xitem["Tipo_Prod"].ToString());
+                                xlist.SubItems.Add(xitem["Und_Medida"].ToString());
+                                xlist.SubItems.Add(xitem["Utilidad_Unit"].ToString());
+                                xlist.SubItems.Add(xitem["Utilidad_Unit"].ToString());
+
+                                xlist.SubItems.Add("Gravado");
+                                xlist.SubItems.Add("0.00");
+                                xlist.SubItems.Add("0.00");
+                                xlist.SubItems.Add("0.00");
+                                xlist.SubItems.Add(_uni_medida_desc.ToString());
+                            }
+                        }
+
+                        Calcular();
+                        pnl_sinProd.Visible = false;
+                        txt_buscar.Enabled = false;
+                        lbl_BusCotiza.Enabled = false;
+                    }
+                    else
+                    {
+                        fil.Show();
+                        adv.lbl_msm.Text = "No se encontro la Orden: " + txt_buscar.Text + ", Revizar la App.";
+                        adv.ShowDialog();
+                        fil.Hide();
+                        txt_buscar.Enabled = true;
+                        lbl_BusCotiza.Enabled = true;
+                    }
                 }
+                else { 
+                MessageBox.Show("No se encontro la orden: " + nroCot +", debe iniciar con COT... ó APP...", "Comprobante", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+
             }
             catch (Exception)
             {
-
                 throw;
             }
         }
@@ -1976,9 +2089,9 @@ namespace Microsell_Lite.Ventas
         }
         private void label3_Click(object sender, EventArgs e)
         {
-            if (txt_buscar.Text.Length > 6)
+            if (txt_buscar.Text.Length > 0)
             {
-                Buscar_Cotizacion_Atender(txt_buscar.Text);
+                Buscar_Cotizacion_Atender(txt_buscar.Text.ToUpper());
 
             }
         }

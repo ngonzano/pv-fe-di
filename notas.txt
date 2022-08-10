@@ -5,5 +5,4 @@
 * para crear usuario crtl+shit+F12
 * instalar Microsoft.ACE.OLEDB.12.0 en todas las pc donde se va usar - pendiente de validar
 * instalar sap para el reporte - pendiente de validar
-
-* revisar el margen de utilidad poner claro que es lo que se va poner para un 20% poner 1.2
+* tener en cuenta el margen de utilidad tener claro que lo que se pone para un 20% es 1.2
