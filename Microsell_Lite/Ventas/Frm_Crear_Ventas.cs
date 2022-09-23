@@ -1980,14 +1980,14 @@ namespace Microsell_Lite.Ventas
                             return;
                         }
                         txt_nroPed.Text = dato["id_Ped"].ToString();
-                        txt_NroCotiza.Text = dato["Id_Cotiza"].ToString();
                         //debe validar si es de la app
+                        txt_NroCotiza.Text = dato["Id_Cotiza"].ToString();
                         dtp_FechaEmi.Value = Convert.ToDateTime(dato["FechaCoti"].ToString());
-                        lbl_idcliente.Text = dato["Id_Cliente"].ToString();
-                        txt_cliente.Text = dato["Razon_Social_Nombres"].ToString();
-                        lbl_direccion.Text = dato["Direccion"].ToString();
-                        lbl_Dni.Text = dato["DNI"].ToString().Trim();
-                        Leer_Datos_DelCliente(lbl_Dni.Text);
+                        //lbl_idcliente.Text = dato["Id_Cliente"].ToString();
+                        //txt_cliente.Text = dato["Razon_Social_Nombres"].ToString();
+                        //lbl_direccion.Text = dato["Direccion"].ToString();
+                        //lbl_Dni.Text = dato["DNI"].ToString().Trim();
+                        //Leer_Datos_DelCliente(lbl_Dni.Text);
 
                         foreach (DataRow xitem in dt.Rows)
                         {
