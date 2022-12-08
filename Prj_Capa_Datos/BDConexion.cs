@@ -12,8 +12,7 @@ namespace SPV_Capa_Datos
     {
         public string Conectar()
         {
-            return "data source=mssql-89143-0.cloudclusters.net,17314; initial Catalog=PV_ZEUS_NILTON;uid=ngonzano;pwd=ngonzanO1401";
-            //return "data source=192.168.18.17; initial Catalog=ZEUS_POS_FE;uid=SPV;pwd=1234";
+            return "data source=192.168.18.17; initial Catalog=ZEUS_POS_FE;uid=SPV;pwd=1234";
 
             // PC-NILTON
             //return "Server=tcp:softzeusposbd.database.windows.net,1433;Initial Catalog=ZEUS_POS_FE;Persist Security Info=False;User ID=ngonzano;Password=14@qweszxc;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30";
@@ -27,8 +26,7 @@ namespace SPV_Capa_Datos
         }
         public static string Conectar2()
         {
-            return "data source=mssql-89143-0.cloudclusters.net,17314; initial Catalog=PV_ZEUS_NILTON;uid=ngonzano;pwd=ngonzanO1401";
-            //return "data source=192.168.18.17; initial Catalog=ZEUS_POS_FE;uid=SPV;pwd=1234";
+            return "data source=192.168.18.17; initial Catalog=ZEUS_POS_FE;uid=SPV;pwd=1234";
             // PC-NILTON
             //return "data source=JUNIOR; initial Catalog=ZEUS_POS_FE;uid=sa;pwd=1234";
             //return "Server=tcp:softzeusposbd.database.windows.net,1433;Initial Catalog=ZEUS_POS_FE;Persist Security Info=False;User ID=ngonzano;Password=14@qweszxc;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30";
